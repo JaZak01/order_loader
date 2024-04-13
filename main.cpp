@@ -5,6 +5,8 @@
 #include <regex>
 #include <algorithm>
 #include <thread> // For std::this_thread::sleep_for
+#include <gtk/gtk.h>
+
 
 namespace fs = std::filesystem;
 
@@ -49,7 +51,20 @@ std::vector<std::string> listFilesAndExtractFloatValues(const std::string& direc
     return filenames;
 }
 
+// Callback function for handling button click events
+static void openFiles(GtkWidget *widget, gpointer data) {
+    std::string directoryPath = reinterpret_cast<const char*>(data);
+    std::vector<std::string> filenames = listFilesAndExtractFloatValues(directoryPath);
+    for (const auto& filename : filenames) {
+        std::string filePath = directoryPath + "/" + filename;
+        std::string command = "xdg-open \"" + filePath + "\" &";
+        std::system(command.c_str());
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+}
+
 int main(int argc, char *argv[]) {
+/*
     // Check if there is exactly one command-line argument (excluding the program name)
     if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " <directory_path>" << std::endl;
@@ -71,4 +86,27 @@ int main(int argc, char *argv[]) {
     }
 
     return 0; // Return success code
+    */
+    gtk_init(&argc, &argv);
+
+    // Create a window
+    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(window), "Open PDF Files");
+    gtk_window_set_default_size(GTK_WINDOW(window), 300, 200);
+    gtk_container_set_border_width(GTK_CONTAINER(window), 10);
+
+    // Create a button
+    GtkWidget *button = gtk_button_new_with_label("Open PDF Files");
+    g_signal_connect(button, "clicked", G_CALLBACK(openFiles), argv[1]);
+
+    // Add the button to the window
+    gtk_container_add(GTK_CONTAINER(window), button);
+
+    // Show all widgets
+    gtk_widget_show_all(window);
+
+    // Main GTK loop
+    gtk_main();
+
+    return 0;
 }
