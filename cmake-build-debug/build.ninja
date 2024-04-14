@@ -51,7 +51,21 @@ build cmake_object_order_depends_target_pdf_order: phony || CMakeFiles/pdf_order
 
 build CMakeFiles/pdf_order.dir/main.cpp.o: CXX_COMPILER__pdf_order_unscanned_Debug /home/jakzak/CLionProjects/pdf_order/main.cpp || cmake_object_order_depends_target_pdf_order
   DEP_FILE = CMakeFiles/pdf_order.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always   -pthread
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = CMakeFiles/pdf_order.dir
+  OBJECT_FILE_DIR = CMakeFiles/pdf_order.dir
+
+build CMakeFiles/pdf_order.dir/file_utils.cpp.o: CXX_COMPILER__pdf_order_unscanned_Debug /home/jakzak/CLionProjects/pdf_order/file_utils.cpp || cmake_object_order_depends_target_pdf_order
+  DEP_FILE = CMakeFiles/pdf_order.dir/file_utils.cpp.o.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+  OBJECT_DIR = CMakeFiles/pdf_order.dir
+  OBJECT_FILE_DIR = CMakeFiles/pdf_order.dir
+
+build CMakeFiles/pdf_order.dir/gtk_gui.cpp.o: CXX_COMPILER__pdf_order_unscanned_Debug /home/jakzak/CLionProjects/pdf_order/gtk_gui.cpp || cmake_object_order_depends_target_pdf_order
+  DEP_FILE = CMakeFiles/pdf_order.dir/gtk_gui.cpp.o.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   INCLUDES = -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = CMakeFiles/pdf_order.dir
   OBJECT_FILE_DIR = CMakeFiles/pdf_order.dir
@@ -64,7 +78,7 @@ build CMakeFiles/pdf_order.dir/main.cpp.o: CXX_COMPILER__pdf_order_unscanned_Deb
 #############################################
 # Link the executable pdf_order
 
-build pdf_order: CXX_EXECUTABLE_LINKER__pdf_order_Debug CMakeFiles/pdf_order.dir/main.cpp.o
+build pdf_order: CXX_EXECUTABLE_LINKER__pdf_order_Debug CMakeFiles/pdf_order.dir/main.cpp.o CMakeFiles/pdf_order.dir/file_utils.cpp.o CMakeFiles/pdf_order.dir/gtk_gui.cpp.o
   FLAGS = -g
   LINK_LIBRARIES = -lgtk-3  -lgdk-3  -lpangocairo-1.0  -lpango-1.0  -lharfbuzz  -latk-1.0  -lcairo-gobject  -lcairo  -lgdk_pixbuf-2.0  -lgio-2.0  -lgobject-2.0  -lglib-2.0
   OBJECT_DIR = CMakeFiles/pdf_order.dir
