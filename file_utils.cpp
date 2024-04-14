@@ -13,7 +13,7 @@ float extractFloatValueFromFilename(const std::string& filename) {
 bool compareFilenamesByFloatValue(const std::string& filename1, const std::string& filename2) {
     float floatValue1 = extractFloatValueFromFilename(filename1);
     float floatValue2 = extractFloatValueFromFilename(filename2);
-    return floatValue1 < floatValue2;
+    return floatValue1 > floatValue2;
 }
 
 std::vector<std::string> listFilesAndExtractFloatValues(const std::string& directoryPath) {
